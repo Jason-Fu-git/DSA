@@ -1,0 +1,19 @@
+hashing strategy,collision strategy,table size,input,insert time (ms),query time(ms),run time(ms)
+bad_hashing,linear_probe,499883,"seqential (400000 insert, 500000 query)",>10000,>10000,>10000
+bad_hashing,quadratic_probe,499883,"seqential (400000 insert, 500000 query)",2098,7460,9558
+bad_hashing,overflow_probe,499883,"seqential (400000 insert, 500000 query)",>10000,>10000,>10000
+good_hashing,linear_probe,499883,"seqential (400000 insert, 500000 query)",461,565,1026
+good_hashing,quadratic_probe,499883,"seqential (400000 insert, 500000 query)",451,483,934
+good_hashing,overflow_probe,499883,"seqential (400000 insert, 500000 query)",>10000,>10000,>10000
+bad_hashing,linear_probe,41011,"collision (10000 insert, 2000000 query)",204,>10000,>10000
+bad_hashing,quadratic_probe,41011,"collision (10000 insert, 2000000 query)",16,3361,3377
+bad_hashing,overflow_probe,41011,"collision (10000 insert, 2000000 query)",106,>10000,>10000
+good_hashing,linear_probe,41011,"collision (10000 insert, 2000000 query)",12,1813,1825
+good_hashing,quadratic_probe,41011,"collision (10000 insert, 2000000 query)",12,1765,1777
+good_hashing,overflow_probe,41011,"collision (10000 insert, 2000000 query)",44,>10000,>10000
+bad_hashing,linear_probe,1000003,"even (120000 insert, 500000 query)",>10000,>10000,>10000
+bad_hashing,quadratic_probe,1000003,"even (120000 insert, 500000 query)",368,1993,2361
+bad_hashing,overflow_probe,1000003,"even (120000 insert, 500000 query)",>10000,>10000,>10000
+good_hashing,linear_probe,1000003,"even (120000 insert, 500000 query)",128,396,524
+good_hashing,quadratic_probe,1000003,"even (120000 insert, 500000 query)",127,427,554
+good_hashing,overflow_probe,1000003,"even (120000 insert, 500000 query)",189,907,1096

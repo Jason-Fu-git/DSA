@@ -1,5 +1,5 @@
 #include <cstdio>
-
+#include <ctime>
 // 下方Node类，BST类，Splay类均改编自《数据结构》讲义
 
 /**
@@ -51,7 +51,7 @@ protected:
     nodep<T> root; // 树根
 
     nodep<T> succ_child(nodep<T>); // 中序遍历意义上的直接后继（孩子）
-    nodep<T> pred(nodep<T>);       // 中序遍历意义上的直接前驱（祖先）
+    nodep<T> pred(nodep<T>);       // 中序遍历意义上的直接前驱
 
 public:
     BST() : root(nullptr), _hot(nullptr)
@@ -353,10 +353,11 @@ nodep<T> Splay<T>::searchLe(const T &e)
 
 int main()
 {
-    // #ifndef _OJ_
-    //     freopen("a.in", "r", stdin);
-    //     freopen("a.out", "w", stdout);
-    // #endif
+#ifndef _OJ_
+    freopen("dl.in", "r", stdin);
+    freopen("dl_splay.out", "w", stdout);
+#endif
+    double t0 = clock();
     Splay<int> splay;
     int n; // 操作数目
     scanf("%d", &n);
@@ -377,4 +378,6 @@ int main()
             printf("%d\n", (p ? p->data : -1));
         }
     }
+    double t1 = clock();
+    printf("Splay time : %.2lf ms\n", t1 - t0);
 }

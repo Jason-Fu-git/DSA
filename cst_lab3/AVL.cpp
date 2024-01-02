@@ -1,5 +1,5 @@
 #include <cstdio>
-
+#include <ctime>
 // 下方Node类，BST类，AVL类均改编自《数据结构》讲义
 
 /**
@@ -262,7 +262,7 @@ bool BST<T>::remove(const T &e)
 
 /**
  * AVL 类
-*/
+ */
 template <class T>
 class AVL : public BST<T>
 {
@@ -363,9 +363,10 @@ bool AVL<T>::remove(const T &e) // O(logn) 复杂度较高，可能一次调整�
 int main()
 {
 #ifndef _OJ_
-    freopen("a.in", "r", stdin);
-    freopen("a.out", "w", stdout);
+    freopen("dl.in", "r", stdin);
+    freopen("dl_avl.out", "w", stdout);
 #endif
+    double t0 = clock();
     AVL<int> avl;
     int n; // 操作数目
     scanf("%d", &n);
@@ -386,4 +387,6 @@ int main()
             printf("%d\n", (p ? p->data : -1));
         }
     }
+    double t1 = clock();
+    printf("AVL time : %.2lf ms\n ", t1 - t0);
 }

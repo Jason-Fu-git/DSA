@@ -3,22 +3,22 @@ template <class T>
 class Splay : public BST<T>
 {
 protected:
-    void splay(Node<T> *v); // 把v伸展至根
+    void splay(nodep<T> v); // 把v伸展至根
 public:
-    Node<T> *search(const T &e) override;
-    Node<T> *insert(const T &e) override;
+    nodep<T> &search(const T &e) override;
+    nodep<T> insert(const T &e) override;
     bool remove(const T &e) override;
 };
 
 template <class T>
-void Splay<T>::splay(Node<T> *v)
+void Splay<T>::splay(nodep<T> v)
 {
     if (!v)
         return;
-    Node<T> *p, *g;
+    nodep<T> p, g;
     while ((p = v->parent) && (g = p->parent)) // 双层伸展，有父亲和祖父
     {
-        Node<T> *gp = g->parent;
+        nodep<T> gp = g->parent;
         if (p == g->lc)
         {
 
@@ -121,15 +121,15 @@ void Splay<T>::splay(Node<T> *v)
 }
 
 template <class T>
-Node<T> *Splay<T>::search(const T &e)
+nodep<T> &Splay<T>::search(const T &e)
 {
-    Node<T> *v = BST<T>::search(e);
+    nodep<T> v = BST<T>::search(e);
     splay(v ? v : BST<T>::_hot);
     return BT<T>::root;
 }
 
 template <class T>
-Node<T> *Splay<T>::insert(const T &e)
+nodep<T> Splay<T>::insert(const T &e)
 {
     if (BT<T>::size == 0)
     { // empty
@@ -138,7 +138,7 @@ Node<T> *Splay<T>::insert(const T &e)
         return BT<T>::root;
     }
 
-    Node<T> *v = search(e);
+    nodep<T> v = search(e);
     if (v->data == e)
         return v; // already exists
     // if not exist, insert it around the root
@@ -166,7 +166,7 @@ Node<T> *Splay<T>::insert(const T &e)
 template <class T>
 bool Splay<T>::remove(const T &e)
 {
-    Node<T> *v = search(e);
+    nodep<T> v = search(e);
     if (v && v->data == e)
     { // 命中，此时应移除根节点
         if (!v->rc)

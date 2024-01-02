@@ -1,23 +1,17 @@
-#include <iostream>
-#include <cmath>
-#include <typeinfo>
-using namespace std;
+#include <cstdio>
 
-bool isPrime(int n)
+int calcCount(int n)
 {
-    for (int i = 2; i < (int)sqrt(n); i++)
-    {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
+    if (n == 4)
+        return 3;
+    else if (n == 1)
+        return 0;
+    else if (n <= 3)
+        return 1;
+    return 3 * calcCount(n / 4) + calcCount(n - n / 4 - n / 4 - n / 4) + n + 1;
 }
 
 int main()
 {
-    int *p;
-    *p = 12301823;
-    
-    if(typeid(*p) == typeid(int))
-        cout << "p is an int" << endl;
+    printf("%d\n", calcCount(100000));
 }

@@ -1,4 +1,9 @@
 # Data Structure and Algorithm
+
+<div align='left'>
+    <img src="https://img.shields.io/badge/License-MIT%20License-purple" alt="Static Badge" />
+</div>
+
 This repo contains codes of the lecture assignment of CST DSA 2023 autumn class in Tsinghua University, including 12 PA assignments and 4 labs.
 ## Data Structure
 The `datastructure` directory contains the implementation of basic data sturctures:
